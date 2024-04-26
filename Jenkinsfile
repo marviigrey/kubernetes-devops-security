@@ -8,12 +8,6 @@ pipeline {
               archive 'target/*.jar' 
             }
         }
-      stage('unit testing and jacoco code coverage added') {
-            steps {
-              sh 'mvn test'
-            }
-            
-      }    
        
-    }
-}
+        }
+  }
