@@ -2,6 +2,7 @@
 
 ## Fork and Clone this Repo
 
+To complete this project, you will need a microsoft azure account
 ## Clone to Desktop and VM
 
 ## NodeJS Microservice - Docker Image -
