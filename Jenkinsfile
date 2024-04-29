@@ -22,7 +22,7 @@ pipeline {
       }
       stage('mutation testing') {
         steps {
-          sh "mvn org.pitest:pitest-maven:mutationCoverage"       
+          sh 'mvn org.pitest:pitest-maven:mutationCoverage'       
         }
         post {
             always {
@@ -30,7 +30,7 @@ pipeline {
             }
           }
       }
-      
+
     stage('docker build image') {
           steps {
             withDockerRegistry([credentialsId:'docker-login', url: '']) {
