@@ -21,11 +21,7 @@ pipeline {
             
       }
     
-  stage('SonarQube Analysis') {
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.projectName='numeric-application'"
-    }
-  }
+  
     stage('docker build image') {
           steps {
             withDockerRegistry([credentialsId:'docker-login', url: '']) {
@@ -37,14 +33,7 @@ pipeline {
           
           }
     }
-    stage('deploy to kubernetes') {
-      steps {
-        withKubeConfig([credentialsId: 'kubeconfig']) {
-            sh "sed -i 's#replace#marviigrey/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
-            sh "kubectl create -f k8s_deployment_service.yaml"
-        }
-      }
-    }
+    
        
         }
   }
