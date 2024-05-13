@@ -22,17 +22,7 @@ pipeline {
       }
     
   
-    stage('docker build image') {
-          steps {
-            withDockerRegistry([credentialsId:'docker-login', url: '']) {
-            sh 'printenv'
-            sh 'docker build -t marviigrey/numeric-app:""$GIT_COMMIT"" .'
-            sh 'docker push marviigrey/numeric-app:""$GIT_COMMIT""'
-
-              }
-          
-          }
-    }
+    
     
        
         }
