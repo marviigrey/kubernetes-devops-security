@@ -23,7 +23,7 @@ pipeline {
       stage('SonarQube Analysis') {
        steps {
          withSonarQubeEnv('sonar') {
-               sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java-app -Dsonar.projectName='java-app'"
+               sh "mvn clean verify sonar:sonar -Dsonar.projectKey=java-app -Dsonar.projectName='java-app'"
           }
        }
     
