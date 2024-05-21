@@ -24,9 +24,9 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonar') {
                     // Optionally use a Maven environment you've configured already
-                    withMaven(maven:'Maven 3.5') {
-                        sh 'mvn clean package sonar:sonar'
-                    }
+                    
+                        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=java-app -Dsonar.projectName='java-app'"
+                    
                 }
             }
         }
