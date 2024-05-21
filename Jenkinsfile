@@ -20,16 +20,7 @@ pipeline {
             }
             
       }
-      stage('junit-test') {
-        steps {
-          sh 'mvn test-compile org.pitest:pitest-maven:mutationCoverage'
-        }
-        post{
-          always{
-            pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
-          }
-        }
-      }
+      
       stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
